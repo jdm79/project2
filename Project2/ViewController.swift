@@ -19,10 +19,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         countries += ["estonia", "france", "germany", "ireland",
                       "italy", "monaco", "nigeria", "poland",
                       "russia", "spain","uk", "us"]
+        
         button1.layer.borderWidth = 1
         button2.layer.borderWidth = 1
         button3.layer.borderWidth = 1
@@ -34,7 +34,7 @@ class ViewController: UIViewController {
         askQuestion()
     }
     
-    func askQuestion() {
+    func askQuestion(action: UIAlertAction! = nil) {
         countries.shuffle()
         
         button1.setImage(UIImage(named: countries[0]), for: .normal)
@@ -45,6 +45,22 @@ class ViewController: UIViewController {
     }
     
     @IBAction func buttonTapped(_ sender: UIButton) {
+        var title: String
+        if(sender.tag == correctAnswer) {
+            title = "Correct"
+            score += 1
+        } else {
+            title = "Incorrect"
+            score -= 1
+        }
+        
+        let ac = UIAlertController(title: title, message: "Your score is \(score)", preferredStyle: .alert)
+        
+        // handler: takes a closure, a function to run after
+        // (which in this case keeps the game running)
+        ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
+        
+        present(ac, animated: true)
     }
     
 }
