@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     
     var countries = [String]()
     var correctAnswer = 0
+    var questionCount = 0
     var score = 0
     
     override func viewDidLoad() {
@@ -41,7 +42,7 @@ class ViewController: UIViewController {
         button2.setImage(UIImage(named: countries[1]), for: .normal)
         button3.setImage(UIImage(named: countries[2]), for: .normal)
         correctAnswer = Int.random(in: 0...2)
-        title = countries[correctAnswer].uppercased()
+        title = "Current score: \(score)/\(questionCount) | Which flag is \(countries[correctAnswer].uppercased())?"
     }
     
     @IBAction func buttonTapped(_ sender: UIButton) {
@@ -50,18 +51,32 @@ class ViewController: UIViewController {
             title = "Correct"
             score += 1
         } else {
-            title = "Incorrect"
-            score -= 1
+            title = "Incorrect! That's the flag of \(countries[sender.tag].uppercased())"
+            score += 0
         }
+        questionCount += 1
+
         
-        let ac = UIAlertController(title: title, message: "Your score is \(score)", preferredStyle: .alert)
-        
-        // handler: takes a closure, a function to run after
-        // (which in this case keeps the game running)
-        ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
-        
-        present(ac, animated: true)
+        if(questionCount == 10) {
+            let ac = UIAlertController(title: "Game Over!", message: "You scored \(score)/\(questionCount)", preferredStyle: .alert)
+           
+            gameOver()
+            
+            ac.addAction(UIAlertAction(title: "Play again", style: .default, handler: askQuestion))
+            
+            present(ac, animated: true)
+        } else {
+            let ac = UIAlertController(title: title, message: "", preferredStyle: .alert)
+           
+            ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
+            
+            present(ac, animated: true)
+        }
     }
     
+    func gameOver() {
+        questionCount = 0
+        score = 0
+    }
 }
 
