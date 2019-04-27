@@ -20,6 +20,9 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CAm-DQ-C0h">
                                 <rect key="frame" x="107" y="100" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="CAm-DQ-C0h" secondAttribute="height" multiplier="2:1" id="ZQE-HY-WcZ"/>
+                                </constraints>
                                 <state key="normal" image="us"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6OK-1h-3WH"/>
@@ -27,6 +30,9 @@
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zAO-3N-lVF">
                                 <rect key="frame" x="107" y="230" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="zAO-3N-lVF" secondAttribute="height" multiplier="2:1" id="hoe-UY-a8C"/>
+                                </constraints>
                                 <state key="normal" image="us"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SlP-Qr-fxh"/>
@@ -34,6 +40,9 @@
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATR-gp-s8u">
                                 <rect key="frame" x="107" y="360" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ATR-gp-s8u" secondAttribute="height" multiplier="2:1" id="tGK-2G-DTZ"/>
+                                </constraints>
                                 <state key="normal" image="us"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bvB-cz-1Hx"/>
@@ -48,7 +57,10 @@
                             <constraint firstItem="ATR-gp-s8u" firstAttribute="centerX" secondItem="zAO-3N-lVF" secondAttribute="centerX" id="Hk0-Hk-Vr9"/>
                             <constraint firstItem="ATR-gp-s8u" firstAttribute="top" secondItem="zAO-3N-lVF" secondAttribute="bottom" constant="30" id="m9U-BL-dVO"/>
                             <constraint firstItem="zAO-3N-lVF" firstAttribute="top" secondItem="CAm-DQ-C0h" secondAttribute="bottom" constant="30" id="maq-ST-sKg"/>
+                            <constraint firstItem="ATR-gp-s8u" firstAttribute="height" secondItem="zAO-3N-lVF" secondAttribute="height" id="n7q-46-agF"/>
+                            <constraint firstItem="zAO-3N-lVF" firstAttribute="height" secondItem="CAm-DQ-C0h" secondAttribute="height" id="nfR-sg-88Y"/>
                             <constraint firstItem="zAO-3N-lVF" firstAttribute="centerX" secondItem="CAm-DQ-C0h" secondAttribute="centerX" id="rum-x9-BWE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ATR-gp-s8u" secondAttribute="bottom" constant="20" id="s1N-qw-vuv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

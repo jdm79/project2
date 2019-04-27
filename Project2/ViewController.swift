@@ -45,7 +45,7 @@ class ViewController: UIViewController {
         button2.setImage(UIImage(named: countries[1]), for: .normal)
         button3.setImage(UIImage(named: countries[2]), for: .normal)
         correctAnswer = Int.random(in: 0...2)
-        title = "Current score: \(score)/\(questionCount) | Which flag is \(countries[correctAnswer].uppercased())?"
+        title = "\(score)/\(questionCount) | \(countries[correctAnswer].uppercased())?"
     }
     
     @IBAction func buttonTapped(_ sender: UIButton) {
@@ -53,18 +53,18 @@ class ViewController: UIViewController {
         var message: String
         if(sender.tag == correctAnswer) {
             title = "Correct"
-            message = "That is indeed the flag of \(countries[sender.tag].uppercased())!"
+            message = "\(countries[sender.tag].uppercased()) indeed"
             score += 1
         } else {
-            title = "Incorrect!"
-            message = "That's actually the flag of \(countries[sender.tag].uppercased())"
+            title = "Incorrect"
+            message = "This flag's \(countries[sender.tag].uppercased())"
             score += 0
         }
         questionCount += 1
 
         
         if(questionCount == 10) {
-            let ac = UIAlertController(title: "Game Over!", message: "You scored \(score)/\(questionCount)", preferredStyle: .alert)
+            let ac = UIAlertController(title: "Game Over", message: "You scored \(score)/\(questionCount)", preferredStyle: .alert)
            
             gameOver()
             
